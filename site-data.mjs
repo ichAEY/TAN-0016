@@ -1,4 +1,6 @@
-const publicBase = process.env.NEXT_PUBLIC_BASE_PATH || "";\n\nexport default {
+const publicBase = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+export default {
   "basePath": publicBase,
   "template": {
     "specialty": "nails",
@@ -456,4 +458,4 @@ const publicBase = process.env.NEXT_PUBLIC_BASE_PATH || "";\n\nexport default {
   "analytics": {
     "yandexMetrikaId": ""
   }
-};\n
+};
