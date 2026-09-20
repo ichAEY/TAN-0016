@@ -48,16 +48,6 @@ jobs:
       - run: npm test
       - name: Render production scenarios
         run: npm run qa:scenarios
-      - name: Enable GitHub Pages when possible
-        env:
-          GH_TOKEN: ${{ github.token }}
-        shell: bash
-        run: |
-          if gh api "repos/${{ github.repository }}/pages" >/dev/null 2>&1; then
-            echo "GitHub Pages is already enabled."
-            exit 0
-          fi
-          gh api --method POST "repos/${{ github.repository }}/pages" -f build_type=workflow >/dev/null 2>&1 || true
       - id: pages-check
         name: Check whether Pages is enabled
         env:
