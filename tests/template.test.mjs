@@ -20,13 +20,13 @@ test("static export builds from the empty template", () => {
   assert.match(html, /site-root/);
 });
 
-test("client data is empty in the base template", () => {
-  assert.equal(site.master.name, "");
-  assert.equal(site.location.city, "");
-  assert.equal(site.contacts.phoneDisplay, "");
-  assert.equal(site.reviews.length, 0);
-  assert.equal(site.images.gallery.length, 0);
-  assert.equal(Object.values(site.services).flat().length, 0);
+test("client repository contains populated verified site data", () => {
+  assert.equal(site.master.name, "Мария");
+  assert.equal(site.location.city, "Москва");
+  assert.equal(site.contacts.phoneDisplay, "+7 (916) 967-77-77");
+  assert.ok(site.reviews.length > 0 && site.reviews.length <= 9);
+  assert.ok(site.images.gallery.length > 0);
+  assert.ok(site.services.groups.length > 0);
 });
 
 test("the clean template uses one canonical stylesheet and runtime", () => {
@@ -34,10 +34,10 @@ test("the clean template uses one canonical stylesheet and runtime", () => {
   assert.ok(fs.existsSync("public/template-runtime.js"));
 });
 
-test("portfolio and full gallery remain structural without client photos", () => {
+test("portfolio and full gallery remain structural with client photos", () => {
   assert.match(html, /id="mobile-portfolio"/);
   assert.match(html, /Смотреть все работы/);
-  assert.match(html, /mct-work-placeholder/);
+  assert.match(html, /galery00001\.webp/);
   assert.doesNotMatch(html, /disabled=""[^>]*Смотреть все работы/);
 });
 
