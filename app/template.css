@@ -12837,3 +12837,31 @@ html body .mct-map-wrap > a::after {
     content: none !important;
   }
 }
+
+
+/* TAN-0016: preserve the client's round transparent logo without a square backing. */
+.mct-brand-master-image,
+.mct-intro-mark-master {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.mct-brand-master-image img,
+.mct-intro-logo-master {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 50% !important;
+  clip-path: circle(49.5% at 50% 50%) !important;
+}
+
+@media (max-width: 1023px) {
+  .mct-brand-master-image img {
+    width: 48.2px !important;
+    height: 48.2px !important;
+    max-width: 48.2px !important;
+    max-height: 48.2px !important;
+    object-fit: cover !important;
+  }
+}
