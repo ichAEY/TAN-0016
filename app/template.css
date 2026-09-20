@@ -12865,3 +12865,35 @@ html body .mct-map-wrap > a::after {
     object-fit: cover !important;
   }
 }
+
+
+/* TAN-0016: intro logo uses the same round crop as the top-left header logo. */
+.mct-intro-logo-master {
+  width: min(72vw, 330px) !important;
+  height: min(72vw, 330px) !important;
+  max-width: 330px !important;
+  max-height: 330px !important;
+  aspect-ratio: 1 / 1 !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: 50% !important;
+  clip-path: circle(49.5% at 50% 50%) !important;
+}
+
+@media (min-width: 768px) {
+  .mct-intro-logo-master {
+    width: min(28vw, 350px) !important;
+    height: min(28vw, 350px) !important;
+    max-width: 350px !important;
+    max-height: 350px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mct-intro-logo-master {
+    width: min(32vw, 500px) !important;
+    height: min(32vw, 500px) !important;
+    max-width: 500px !important;
+    max-height: 500px !important;
+  }
+}
